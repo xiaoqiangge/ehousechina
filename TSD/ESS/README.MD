@@ -1,5 +1,1 @@
-> ÕâÀïÊÇessÏîÄ¿×é
-
-# Jenkins
-## Jenkins-API
-ÕâÀïÊÇjavaµ÷ÓÃJenkinsµÄAPI
+ï»¿
