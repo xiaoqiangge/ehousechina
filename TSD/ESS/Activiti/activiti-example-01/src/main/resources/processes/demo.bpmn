@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="demo1" name="demo1" isExecutable="true">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <serviceTask id="demo1_task1" name="我是Java服务1" activiti:expression="${workService.show1()}"></serviceTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="demo1_task1"></sequenceFlow>
+    <serviceTask id="demo1_task2" name="我是Java服务2" activiti:expression="${workService.show2()}"></serviceTask>
+    <sequenceFlow id="flow3" sourceRef="demo1_task1" targetRef="demo1_task2"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="demo1_task2" targetRef="endevent1"></sequenceFlow>
+    <dataObject id="mytest" name="resulttest" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <activiti:value>1111</activiti:value>
+      </extensionElements>
+    </dataObject>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_demo1">
+    <bpmndi:BPMNPlane bpmnElement="demo1" id="BPMNPlane_demo1">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="210.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="740.0" y="197.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="demo1_task1" id="BPMNShape_demo1_task1">
+        <omgdc:Bounds height="55.0" width="105.0" x="290.0" y="170.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="demo1_task2" id="BPMNShape_demo1_task2">
+        <omgdc:Bounds height="55.0" width="105.0" x="490.0" y="270.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="245.0" y="197.0"></omgdi:waypoint>
+        <omgdi:waypoint x="290.0" y="197.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="342.0" y="225.0"></omgdi:waypoint>
+        <omgdi:waypoint x="542.0" y="270.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="542.0" y="270.0"></omgdi:waypoint>
+        <omgdi:waypoint x="757.0" y="232.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
