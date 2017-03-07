@@ -1,1 +1,1 @@
-﻿
+﻿这里面是example，介绍activiti的各个组件使用。
