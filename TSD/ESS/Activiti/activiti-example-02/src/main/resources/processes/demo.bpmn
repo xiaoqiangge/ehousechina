@@ -3,9 +3,9 @@
   <process id="demo1" name="demo1" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent1" name="End"></endEvent>
-    <serviceTask id="demo1_task1" name="我是Java服务1" activiti:expression="${workService.show1()}"></serviceTask>
+    <serviceTask id="demo1_task1" name="我是Java服务1" activiti:expression="${workService.show1()}" activiti:resultVariableName="result"></serviceTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="demo1_task1"></sequenceFlow>
-    <serviceTask id="demo1_task2" name="我是Java服务2" activiti:expression="${workService.show2()}"></serviceTask>
+    <serviceTask id="demo1_task2" name="我是Java服务2" activiti:expression="${workService.show2(result)}"></serviceTask>
     <sequenceFlow id="flow3" sourceRef="demo1_task1" targetRef="demo1_task2"></sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="demo1_task2" targetRef="endevent1"></sequenceFlow>
   </process>
