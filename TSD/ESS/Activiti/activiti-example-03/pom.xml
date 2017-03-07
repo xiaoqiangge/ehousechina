@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eju.ess</groupId>
-	<artifactId>activiti-example-02</artifactId>
+	<artifactId>activiti-example-03</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -83,6 +83,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<name>activiti-example-02</name>
-	<description>activiti-example-02</description>
+	<name>activiti-example-03</name>
+	<description>activiti-example-03</description>
 </project>
