@@ -2,13 +2,13 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <process id="demo1" name="demo1" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
-    <serviceTask id="servicetask1" name="Service Task" activiti:expression="${workService.show1()}" activiti:resultVariableName="result"></serviceTask>
+    <serviceTask id="servicetask1" name="转账申请" activiti:expression="${workService.show1()}" activiti:resultVariableName="result"></serviceTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="servicetask1"></sequenceFlow>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow2" sourceRef="servicetask1" targetRef="parallelgateway1"></sequenceFlow>
-    <serviceTask id="servicetask2" name="Service Task" activiti:expression="${workService.show3()}" activiti:resultVariableName="result"></serviceTask>
+    <serviceTask id="servicetask2" name="目标账户正确" activiti:expression="${workService.show3()}" activiti:resultVariableName="result"></serviceTask>
     <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="servicetask2"></sequenceFlow>
-    <serviceTask id="servicetask3" name="Service Task" activiti:expression="${workService.show2()}" activiti:resultVariableName="result"></serviceTask>
+    <serviceTask id="servicetask3" name="账户余额大于0" activiti:expression="${workService.show2()}" activiti:resultVariableName="result"></serviceTask>
     <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="servicetask3"></sequenceFlow>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow6" sourceRef="servicetask2" targetRef="parallelgateway2">
@@ -19,7 +19,7 @@
     </sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow8" sourceRef="servicetask4" targetRef="endevent1"></sequenceFlow>
-    <serviceTask id="servicetask4" name="Service Task" activiti:expression="${workService.show4()}"></serviceTask>
+    <serviceTask id="servicetask4" name="转账" activiti:expression="${workService.show4()}"></serviceTask>
     <sequenceFlow id="flow9" sourceRef="parallelgateway2" targetRef="servicetask4"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_demo1">
