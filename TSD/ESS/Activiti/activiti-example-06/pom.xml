@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eju.ess</groupId>
-	<artifactId>activiti-example-05</artifactId>
+	<artifactId>activiti-example-06</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -54,10 +54,6 @@
 			<artifactId>activiti-spring-boot-starter-basic</artifactId>
 			<version>5.19.0.2</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
 		<!-- <dependency> <groupId>org.activiti</groupId> <artifactId>activiti-spring-boot-starter-rest-api</artifactId> 
 			<version>5.19.0.2</version> </dependency> -->
 	</dependencies>
@@ -82,6 +78,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<name>activiti-example-05</name>
-	<description>activiti-example-05</description>
+	<name>activiti-example-06</name>
+	<description>activiti-example-06</description>
 </project>

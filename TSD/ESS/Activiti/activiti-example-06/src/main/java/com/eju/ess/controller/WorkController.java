@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +31,6 @@ public class WorkController {
 	private RepositoryService repositoryService;
 	@Autowired
 	private RuntimeService runtimeService;
-	@Autowired
-    private TaskService taskService;
 	@Autowired
 	@Qualifier(value="serviceMap")
 	private Map<String,Object> serviceMap;
@@ -58,22 +55,6 @@ public class WorkController {
 			response.getOutputStream().write(b,0,len);
 		}
 	}
-	
-	@RequestMapping("/remove")
-	public ModelAndView removeResource(@RequestParam("pdid") String pdid) throws IOException {
-		repositoryService.deleteDeployment(pdid);
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("/");
-		return mv;
-	}
-	
-	/*@RequestMapping("/tasks")
-	public ModelAndView getTasks(@RequestParam("pdid") String pdid) throws IOException {
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("/");
-		return mv;
-	}*/
-	
 	@RequestMapping("/start")
 	public ModelAndView start(@RequestParam("pdid") String pdid){
 		runtimeService.startProcessInstanceById(pdid,serviceMap);

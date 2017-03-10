@@ -18,7 +18,7 @@
 			<td>${l.version}</td>
 			<td><a href="/read?pdid=${l.id}&resourceName=${l.resourceName}" target="_blank">${l.resourceName}</a></td>
 			<td><a href="/read?pdid=${l.id}&resourceName=${l.diagramResourceName}" target="_blank">${l.diagramResourceName}</a></td>
-			<td><a href="/start?pdid=${l.id}">启动</a> | <a href="/remove?pdid=${l.deploymentId}">删除</a></td>
+			<td><a href="/start?pdid=${l.id}">启动</a></td>
 		</tr>
 	</#list>
 </table>
