@@ -15,16 +15,11 @@ public class WorkService implements Serializable {
 	public void show1() {
 		log.info(">> show1");
 	}
+
 	public void show2() {
-		log.info("show2 doing");
-		try {
-			TimeUnit.SECONDS.sleep(5);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		log.info(">> show2");
 	}
+
 	public void show3() {
 		log.info("show3 doing");
 		try {
@@ -35,6 +30,7 @@ public class WorkService implements Serializable {
 		}
 		log.info(">> show3");
 	}
+
 	public void show4() {
 		log.info(">> show4");
 	}

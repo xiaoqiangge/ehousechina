@@ -2,8 +2,8 @@ package com.eju.ess;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.runtime.Execution;
 import org.activiti.engine.runtime.ProcessInstance;
-import org.activiti.engine.task.Task;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class MyTest {
 	@Autowired
 	private TaskService taskService;
 	@Test
-	public void test() {
+	public void test1() {
 		/*ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("demo1");
 		String activityId = processInstance.getActivityId();
 		log.info(">> activityId >> {}",activityId);
@@ -34,5 +34,21 @@ public class MyTest {
 		
 //		Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
 //		taskService.complete("11");
+	}
+	
+	@Test
+	public void test2(){
+		ProcessInstance processInstance = this.runtimeService.startProcessInstanceByKey("demo1");
+		log.info(">> {}",processInstance.getId());
+	}
+	
+	@Test
+	public void test3(){
+		Execution execution1 = runtimeService
+                .createExecutionQuery()  
+                .processInstanceId("5")//流程实例ID  
+                .activityId("receivetask1")//当前活动的名称  
+                .singleResult(); 
+		runtimeService.signal(execution1.getId());
 	}
 }
