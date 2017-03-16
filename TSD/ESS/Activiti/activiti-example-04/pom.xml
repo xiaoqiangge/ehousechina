@@ -55,9 +55,14 @@
 			<version>5.19.0.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+		</dependency> -->
+		 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<!-- <dependency> <groupId>org.activiti</groupId> <artifactId>activiti-spring-boot-starter-rest-api</artifactId> 
 			<version>5.19.0.2</version> </dependency> -->
@@ -83,6 +88,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<name>activiti-example-04</name>
-	<description>activiti-example-04</description>
+	<name>activiti-example-05</name>
+	<description>activiti-example-05</description>
 </project>
