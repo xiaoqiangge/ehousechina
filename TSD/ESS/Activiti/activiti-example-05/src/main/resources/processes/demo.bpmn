@@ -2,11 +2,11 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
   <process id="demo1" name="demo1" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
-    <serviceTask id="servicetask1" name="Service Task" activiti:expression="${workService.show1()}"></serviceTask>
+    <serviceTask id="servicetask1" name="请加" activiti:expression="${workService.show1()}"></serviceTask>
     <sequenceFlow id="flow2" sourceRef="startevent1" targetRef="servicetask1"></sequenceFlow>
-    <receiveTask id="receivetask1" name="Receive Task"></receiveTask>
+    <receiveTask id="receivetask1" name="等待领导确认"></receiveTask>
     <sequenceFlow id="flow3" sourceRef="servicetask1" targetRef="receivetask1"></sequenceFlow>
-    <serviceTask id="servicetask2" name="Service Task" activiti:expression="${workService.show2()}"></serviceTask>
+    <serviceTask id="servicetask2" name="销假" activiti:expression="${workService.show2()}"></serviceTask>
     <sequenceFlow id="flow4" sourceRef="receivetask1" targetRef="servicetask2"></sequenceFlow>
     <endEvent id="endevent1" name="End"></endEvent>
     <sequenceFlow id="flow5" sourceRef="servicetask2" targetRef="endevent1"></sequenceFlow>
@@ -20,7 +20,7 @@
         <omgdc:Bounds height="55.0" width="105.0" x="400.0" y="140.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="receivetask1" id="BPMNShape_receivetask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="560.0" y="184.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="600.0" y="210.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="servicetask2" id="BPMNShape_servicetask2">
         <omgdc:Bounds height="55.0" width="105.0" x="750.0" y="150.0"></omgdc:Bounds>
@@ -33,12 +33,12 @@
         <omgdi:waypoint x="400.0" y="167.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
-        <omgdi:waypoint x="505.0" y="167.0"></omgdi:waypoint>
-        <omgdi:waypoint x="612.0" y="184.0"></omgdi:waypoint>
+        <omgdi:waypoint x="452.0" y="195.0"></omgdi:waypoint>
+        <omgdi:waypoint x="652.0" y="210.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
-        <omgdi:waypoint x="665.0" y="211.0"></omgdi:waypoint>
-        <omgdi:waypoint x="750.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="705.0" y="237.0"></omgdi:waypoint>
+        <omgdi:waypoint x="802.0" y="205.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
         <omgdi:waypoint x="855.0" y="177.0"></omgdi:waypoint>
