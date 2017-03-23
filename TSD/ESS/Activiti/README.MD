@@ -1,4 +1,4 @@
-﻿> 这里面是example，介绍activiti的各个组件使用。
+﻿> 研究Activiti工作流，为后面的开发做准备，这里面是example，调研了几个组件的使用。
 
 # activiti-example-01
 
