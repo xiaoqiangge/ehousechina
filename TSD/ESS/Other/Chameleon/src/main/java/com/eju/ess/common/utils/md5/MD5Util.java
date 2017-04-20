@@ -6,7 +6,11 @@ import java.io.IOException;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
-
+/**
+ * md5工具类
+ * @author 小强哥
+ *
+ */
 public class MD5Util {
 
 	/**
