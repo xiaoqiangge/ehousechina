@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:batch="http://www.springframework.org/schema/batch" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd  
+    http://www.springframework.org/schema/data/mongo     
+    http://www.springframework.org/schema/data/mongo/spring-mongo.xsd 
+    http://www.springframework.org/schema/batch  
+    http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<context:component-scan base-package="com.eju.ess" />
+
+	<!-- 配置jobLauncher，用来启动job。 -->
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+	<!-- 配置job的持久化 <bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean" 
+		/> -->
+	<!-- -->
+	<batch:job-repository id="jobRepository"
+		data-source="dataSource" transaction-manager="transactionManager"
+		isolation-level-for-create="SERIALIZABLE" table-prefix="BATCH_" />
+
+	<!-- 配置事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.batch.support.transaction.ResourcelessTransactionManager">
+	</bean>
+
+	<!-- mysql数据源连接池 -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<property name="dataSourceClassName"
+			value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+		<property name="minimumIdle" value="2" />
+		<property name="maximumPoolSize" value="50" />
+		<property name="idleTimeout" value="60000" />
+		<property name="initializationFailFast" value="true" />
+		<property name="connectionTimeout" value="10000" />
+		<property name="connectionTestQuery" value="select 1" />
+		<property name="dataSourceProperties">
+			<props>
+				<!-- release -->
+				<prop key="url">jdbc:mysql://10.0.60.106:3306/xiaoqiangtest?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</prop>
+				<prop key="user">xiaoqiang</prop>
+				<prop key="password">xiaoqiangPwd</prop>
+				<prop key="prepStmtCacheSize">250</prop>
+				<prop key="prepStmtCacheSqlLimit">2048</prop>
+				<prop key="cachePrepStmts">true</prop>
+				<prop key="useServerPrepStmts">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<import resource="/service/batch.xml" />
+</beans>  
