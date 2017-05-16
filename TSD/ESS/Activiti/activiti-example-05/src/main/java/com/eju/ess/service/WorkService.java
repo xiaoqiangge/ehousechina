@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 public class WorkService implements Serializable {
 
 	public void show1() {
+//		servicetask1 》 job
+		// for
 		log.info(">> show1");
 	}
 
