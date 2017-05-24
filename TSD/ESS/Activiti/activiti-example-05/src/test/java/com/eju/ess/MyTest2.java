@@ -36,10 +36,11 @@ public class MyTest2 {
 			in = new InputStreamReader(new FileInputStream("D:\\ehousechina\\TSD\\ESS\\Activiti\\activiti-example-05\\src\\main\\resources\\processes\\demo.bpmn"), "UTF-8");
 			xtr = xif.createXMLStreamReader(in);
 			BpmnModel model = new BpmnXMLConverter().convertToBpmnModel(xtr);
-			Collection<FlowElement> flowElements = model.getMainProcess().getFlowElements();
+			model.getProcessById("");
+			/*Collection<FlowElement> flowElements = model.getMainProcess().getFlowElements();
 			for (FlowElement e : flowElements) {
 				System.out.println("flowelement id:" + e.getId() + "  name:" + e.getName() + "   class:"+ e.getClass().toString());
-			}
+			}*/
 		} catch (XMLStreamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

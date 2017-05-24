@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eju.ess</groupId>
 	<artifactId>chameleon</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<parent>
@@ -45,7 +44,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
-
 	</dependencies>
 
 	<distributionManagement>
@@ -60,4 +58,5 @@
 			<url>http://maven.eju-inc.com/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<version>0.0.2-SNAPSHOT</version>
 </project>

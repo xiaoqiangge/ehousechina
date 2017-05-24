@@ -4,14 +4,6 @@ import java.util.List;
 
 public class ArrayUtil extends org.apache.commons.lang3.StringUtils {
 
-	public static boolean isNotEmpty(Object args){
-		if(args==null){
-			return false;
-		}else{
-			return true;
-		}
-	}
-	
 	public static String converToString(String[] ig) {  
 	    String str = "";  
 	    if (ig != null && ig.length > 0) {  

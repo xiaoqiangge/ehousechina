@@ -76,7 +76,9 @@ public class WorkController {
 	
 	@RequestMapping("/start")
 	public ModelAndView start(@RequestParam("pdid") String pdid){
-		runtimeService.startProcessInstanceById(pdid,"1111111111",serviceMap);
+		Map map=new HashMap();
+		map.put("test", "mytest123");
+		runtimeService.startProcessInstanceById(pdid,"1111111111",map);
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("/");
 		return mv;
