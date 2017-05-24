@@ -1,6 +1,6 @@
 package com.eju.ess.common.utils.json;
 
-import org.junit.Test;
+import java.util.Iterator;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -67,8 +67,17 @@ public class JsonUtil {
 		}
 		return null;
 	}
-
-	@Test
-	public void test1() {
+	
+	public static Iterator<JsonNode> getJsonNode(String jsonKey, String content) {
+		JsonNode jsoNode = null;
+		try {
+			jsoNode = mapper.readTree(content);
+			return jsoNode.get(jsonKey).iterator();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			jsoNode = null;
+		}
+		return null;
 	}
 }
