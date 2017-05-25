@@ -5,6 +5,8 @@ import java.util.Iterator;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * 基于jackson包装的一个工具类
@@ -68,7 +70,7 @@ public class JsonUtil {
 		return null;
 	}
 	
-	public static Iterator<JsonNode> getJsonNode(String jsonKey, String content) {
+	public static Iterator<JsonNode> getJsonNodes(String jsonKey, String content) {
 		JsonNode jsoNode = null;
 		try {
 			jsoNode = mapper.readTree(content);
@@ -79,5 +81,26 @@ public class JsonUtil {
 			jsoNode = null;
 		}
 		return null;
+	}
+	
+	public static JsonNode getJsonNode(String jsonKey, String content) {
+		JsonNode jsoNode = null;
+		try {
+			jsoNode = mapper.readTree(content);
+			return jsoNode.get(jsonKey);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			jsoNode = null;
+		}
+		return null;
+	}
+	
+	public static ObjectNode createObjectNode() {
+		return mapper.createObjectNode();
+	}
+	
+	public static ArrayNode createArrayNode() {
+		return mapper.createArrayNode();
 	}
 }
