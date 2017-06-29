@@ -3,6 +3,7 @@ package com.eju.ess.common.utils.json;
 import java.util.Iterator;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -53,6 +54,19 @@ public class JsonUtil {
 		} finally {
 			jsonString = null;
 			clazz = null;
+		}
+		return t;
+	}
+	
+	public static <T> T getJsonObjectArray(String jsonString, TypeReference<T> jsonTypeReference) {
+		T t = null;
+		try {
+			t = mapper.readValue(jsonString, jsonTypeReference);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			jsonString = null;
+			jsonTypeReference = null;
 		}
 		return t;
 	}
