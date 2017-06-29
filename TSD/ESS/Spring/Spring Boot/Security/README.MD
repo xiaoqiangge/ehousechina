@@ -1,0 +1,1 @@
+一个简单的demo展示了spring boot中如何配置security，更多内容参考：http://www.cnblogs.com/davidwang456/p/4549344.html?utm_source=tuicool
