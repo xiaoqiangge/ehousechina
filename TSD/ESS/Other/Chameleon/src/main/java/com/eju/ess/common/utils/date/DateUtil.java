@@ -192,8 +192,11 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
 	 * 返回一个10位长度的数字
 	 * @return
 	 */
-	public static long getTimesTamp(){
+	/*public static long getTimesTamp(){
 		return System.currentTimeMillis()/MILLIS_PER_SECOND;
+	}*/
+	public static long getTimesTamp(){
+		return System.currentTimeMillis();
 	}
 	/**
 	 * @param args
