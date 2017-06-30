@@ -39,9 +39,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.relops</groupId>
+			<artifactId>snowflake</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
 			<groupId>com.eju.ess</groupId>
 			<artifactId>chameleon</artifactId>
-			<version>0.0.6-SNAPSHOT</version>
+			<version>0.0.5-SNAPSHOT</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
 		<dependency>

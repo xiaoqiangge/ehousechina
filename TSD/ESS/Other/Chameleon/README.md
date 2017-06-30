@@ -1,6 +1,11 @@
-> 打造一个个人的通用类库，不受任何业务逻辑影响、不受任何第三方框架制约
+# 0.0.6
+增加snowflake算法整成分布式唯一Id，是否用方式如下，
 
-# DateUtil
-一个日期工具类
-# MD5Util
-一个获得md5字符串工具类
+```
+	Snowflake s = SnowflakeUtil.getSnowflake();
+	long id = s.next();
+	System.out.println(i + "----" + id);
+```
+
+# 0.0.5
+略
