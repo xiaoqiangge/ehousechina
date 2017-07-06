@@ -1,17 +1,34 @@
-package com.eju.ess.common.utils.seri;
+package com
+.eju.ess.common.utils.seri;
 
 import com.eju.ess.common.utils.md5.MD5Util;
 import com.relops.snowflake.Snowflake;
 
 public class SnowflakeUtil {
-	public static Snowflake getSnowflake() {
+	
+	private final static int WORKID;
+	private static Snowflake snowflake; 
+	static{
+		String md5Str = MD5Util.getMD5Str(String.valueOf(System.currentTimeMillis()));
+		String binStr = StrToBinstr(md5Str);
+		String LastStr = binStr.substring(binStr.length() - 10, binStr.length());
+		WORKID = Integer.parseInt(LastStr, 2);
+	}
+	
+	public static synchronized  Snowflake getInstance() {   
+        if (snowflake == null)   
+        	snowflake = new Snowflake(WORKID);  
+        return snowflake;   
+    }   
+	
+	/*public static Snowflake getSnowflake() {
 		String md5Str = MD5Util.getMD5Str(String.valueOf(System.currentTimeMillis()));
 		String binStr = StrToBinstr(md5Str);
 		String LastStr = binStr.substring(binStr.length() - 10, binStr.length());
 		int workId = Integer.parseInt(LastStr, 2);
-		Snowflake snowflake = new Snowflake(workId);
+		Snowflake snowflake = new Snowflake(WORKID);
 		return snowflake;
-	}
+	}*/
 
 	private static String StrToBinstr(String str) {
 		char[] strChar = str.toCharArray();
