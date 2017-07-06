@@ -7,7 +7,7 @@ import com.relops.snowflake.Snowflake;
 public class SnowflakeUtil {
 	
 	private final static int WORKID;
-	private static Snowflake snowflake; 
+	private static volatile Snowflake snowflake; 
 	static{
 		String md5Str = MD5Util.getMD5Str(String.valueOf(System.currentTimeMillis()));
 		String binStr = StrToBinstr(md5Str);
@@ -15,9 +15,15 @@ public class SnowflakeUtil {
 		WORKID = Integer.parseInt(LastStr, 2);
 	}
 	
-	public static synchronized  Snowflake getInstance() {   
-        if (snowflake == null)   
-        	snowflake = new Snowflake(WORKID);  
+	public static Snowflake getInstance() {   
+        if (snowflake == null) {
+        	synchronized (SnowflakeUtil.class) {
+                //未初始化，则初始instance变量
+                if (snowflake == null) {
+                	snowflake = new Snowflake(WORKID);  
+                }   
+            }   
+        }
         return snowflake;   
     }   
 	
