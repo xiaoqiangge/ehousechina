@@ -6,6 +6,7 @@ import com.relops.snowflake.Snowflake;
 
 public class SnowflakeUtil {
 	
+	private SnowflakeUtil() {}
 	private final static int WORKID;
 	private static volatile Snowflake snowflake; 
 	static{
