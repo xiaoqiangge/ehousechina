@@ -109,11 +109,21 @@ public class JsonUtil {
 		}
 		return null;
 	}
+	
+	public static JsonNode getJsonNode(String content) {
+		try {
+			return mapper.readTree(content);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return null;
+	}
 
 	public static ObjectNode createObjectNode() {
 		return mapper.createObjectNode();
 	}
 
+	
 	public static ArrayNode createArrayNode() {
 		return mapper.createArrayNode();
 	}
